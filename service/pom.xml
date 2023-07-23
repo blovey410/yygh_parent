@@ -4,12 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.sxt</groupId>
-        <artifactId>yygh_parent</artifactId>
+        <groupId>com.xyt</groupId>
+        <artifactId>yygh-parent</artifactId>
         <version>1.0.0</version>
     </parent>
 
     <packaging>pom</packaging>
+    <modules>
+        <module>service-hosp</module>
+        <module>service-cmn</module>
+    </modules>
     <groupId>com.syt</groupId>
     <artifactId>service</artifactId>
 
@@ -20,6 +24,16 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.syt</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.syt</groupId>
+            <artifactId>service-util</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -35,19 +49,19 @@
             <artifactId>mysql-connector-j</artifactId>
         </dependency>
         <!-- 服务调用feign -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <!-- 服务注册 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-loadbalancer</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; 服务注册 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-loadbalancer</artifactId>-->
+<!--        </dependency>-->
         <!--        &lt;!&ndash; 流量控制 &ndash;&gt;-->
         <!--        <dependency>-->
         <!--            <groupId>com.alibaba.cloud</groupId>-->
@@ -55,32 +69,4 @@
         <!--        </dependency>-->
 
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.yml</include>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes> <include>**/*.yml</include>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
-    </build>
-
 </project>
